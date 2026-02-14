@@ -79,7 +79,8 @@ export default function ExpensesPage() {
     const today = new Date().toISOString().split("T")[0];
 
     try {
-      const url = new URL("http://localhost:8000/expenses/");
+      // const url = new URL("http://localhost:8000/expenses/");
+      const url = new URL(`${process.env.NEXT_PUBLIC_API_URL}/expenses/`);
       url.searchParams.append("amount", numericAmount.toString());
       url.searchParams.append("category", category);
       url.searchParams.append("payment_method", "cash");
