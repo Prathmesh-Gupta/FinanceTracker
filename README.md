@@ -23,7 +23,7 @@ docker compose version
 ## 2. Clone the Project
 
 ```bash
-git https://github.com/Prathmesh-Gupta/FinanceTracker.git
+git clone https://github.com/Prathmesh-Gupta/FinanceTracker.git
 cd <PROJECT_FOLDER>
 ```
 
