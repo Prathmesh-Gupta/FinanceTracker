@@ -1,5 +1,8 @@
 # Finance Application
 
+Live Project Frontend link : http://3.26.192.211:3000/dashboard
+Live Project swagger Doc : http://3.26.192.211:8000/docs
+
 ## 1. Install Docker
 
 Install Docker from the official website:
