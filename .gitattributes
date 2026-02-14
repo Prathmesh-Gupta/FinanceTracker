@@ -1,0 +1,18 @@
+# Force LF for shell scripts
+*.sh text eol=lf
+
+# Force LF for Docker files
+Dockerfile text eol=lf
+*.dockerfile text eol=lf
+
+# Python files
+*.py text eol=lf
+
+# YAML files
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# JS / TS
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
