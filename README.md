@@ -1,56 +1,141 @@
-Personal Expense Tracker – Full Stack Demo
+# Finance Application
 
-Live Deployment Frontend: http://3.26.192.211:3000/dashboard API Docs
-(Swagger): http://3.26.192.211:8000/docs
+Live Project Frontend link : http://3.26.192.211:3000/dashboard
+Live Project swagger Doc : http://3.26.192.211:8000/docs
 
-Tech Stack Frontend: Next.js Backend: FastAPI Database: PostgreSQL
-Deployment: Docker / AWS EC2
+## 1. Install Docker
 
-Features - Full CRUD Operations (Create, Read, Update, Delete) - RESTful
-APIs with FastAPI - PostgreSQL Database Integration - Interactive
-Dashboard / Data Visualization - Third-Party API Integration -
-Dockerized Setup - Live Cloud Deployment
+Install Docker from the official website:
 
-Setup Instructions
+https://docs.docker.com/get-docker/
 
-1.  Install Docker Install Docker from:
-    https://docs.docker.com/get-docker/
+Follow the instructions for your operating system (Windows, macOS, or Linux).
 
-Verify installation: docker –version docker compose version
+After installation, verify:
 
-2.  Clone the Project git clone
-    https://github.com/Prathmesh-Gupta/FinanceTracker.git cd
-    FinanceTracker
+```bash
+docker --version
+docker compose version
+```
 
-3.  Configure Environment Variables (IMPORTANT) Open docker-compose.yml
+---
 
-Backend – CORS_ORIGINS CORS_ORIGINS: “http://localhost:3000”
+## 2. Clone the Project
 
-Frontend – NEXT_PUBLIC_API_URL NEXT_PUBLIC_API_URL:
+```bash
+git https://github.com/Prathmesh-Gupta/FinanceTracker.git
+cd <PROJECT_FOLDER>
+```
+
+---
+
+## 3. After Cloning (IMPORTANT)
+
+Open the file:
+
+```
+docker-compose.yml
+```
+
+Edit these **2 lines** if needed.
+
+### Backend – CORS_ORIGINS
+
+Find:
+
+```yaml
+CORS_ORIGINS: "http://3.106.167.247:3000,http://localhost:3000"
+```
+
+If running locally:
+
+```yaml
+CORS_ORIGINS: "http://localhost:3000"
+```
+
+Or replace with your local IP:
+
+```yaml
+CORS_ORIGINS: "http://YOUR_LOCAL_IP:3000"
+```
+
+---
+
+### Frontend – NEXT_PUBLIC_API_URL
+
+Find:
+
+```yaml
+NEXT_PUBLIC_API_URL: http://localhost:8000
+```
+
+If needed:
+
+```yaml
+NEXT_PUBLIC_API_URL: http://YOUR_LOCAL_IP:8000
+```
+
+Or keep:
+
+```yaml
+NEXT_PUBLIC_API_URL: http://localhost:8000
+```
+
+---
+
+## 4. Run the Project
+
+```bash
+docker compose up -d --build
+```
+
+---
+
+## 5. Access the Application
+
+Frontend:
+```
+http://localhost:3000
+```
+
+Backend:
+```
 http://localhost:8000
+```
 
-4.  Run the Project docker compose up -d –build
+Database:
+```
+Host: localhost
+Port: 5432
+User: finance_user
+Password: finance_pass
+Database: finance_db
+```
 
-5.  Access the Application Frontend: http://localhost:3000 Backend:
-    http://localhost:8000
+---
 
-Database Host: localhost Port: 5432 User: finance_user Password:
-finance_pass Database: finance_db
+## 6. Optional: Insert Dummy Data
 
-6.  Optional – Insert Dummy Data docker exec -it finance_postgres psql
-    -U finance_user -d finance_db
+Connect to PostgreSQL:
 
-Run init.sql if required.
+```bash
+docker exec -it finance_postgres psql -U finance_user -d finance_db
+```
 
-How to Test
+Paste SQL named init.sql script into the console for dummy data.
 
-CRUD Flow 1. Open http://localhost:3000 2. Navigate to Expenses 3.
-Create → Update → Delete expense
+Skip if not needed.
 
-Dashboard Navigate to /dashboard Charts update dynamically
+---
 
-API Testing Open http://localhost:8000/docs
+## 7. Stop the Project
 
-7.  Stop the Project docker compose down docker compose down -v
+```bash
+docker compose down
+```
 
-Author Prathmesh Gupta
+Remove database data:
+
+```bash
+docker compose down -v
+```
