@@ -175,7 +175,7 @@ Connect to PostgreSQL:
 docker exec -it finance_postgres psql -U finance_user -d finance_db
 ```
 
-Paste your SQL script into the console.
+Paste SQL script at base location with name init into the console.
 
 Skip if not needed.
 
